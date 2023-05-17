@@ -20,7 +20,7 @@ public class Job {
     }
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        this.name = name.isBlank() ? "Data not available" : name;
+        this.name = name;
         this.employer = employer;
         this.location = location;
         this.positionType = positionType;
@@ -41,6 +41,13 @@ public class Job {
         return Objects.hash(id);
     }
 
+    private String checkStringValue(String value) {
+        if (value == "") {
+            return "Data not available";
+        }
+
+        return value;
+    }
 
     public int getId() {
         return id;
